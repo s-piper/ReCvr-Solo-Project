@@ -21,7 +21,7 @@ function UserPage() {
   const history = useHistory();
 
   const moveToDecision = () =>{
-    history.push()
+    history.push('/decision')
   };
   const moveToCataloged = () =>{
     history.push()
