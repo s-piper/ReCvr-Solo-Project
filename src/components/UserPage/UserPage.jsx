@@ -5,6 +5,7 @@ import './UserPage.css';
 
 
 
+
 // import Grid from '@material-ui/core/Grid';
 // import Paper from '@material-ui/core/Paper';
 // import { Container, Typography } from '@material-ui/core';
@@ -21,7 +22,8 @@ function UserPage() {
   const history = useHistory();
 
   const moveToDecision = () =>{
-    history.push()
+    console.log('Add items click');
+    history.push('/decision')
   };
   const moveToCataloged = () =>{
     history.push()
