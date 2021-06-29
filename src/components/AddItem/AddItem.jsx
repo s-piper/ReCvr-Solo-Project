@@ -18,35 +18,56 @@ function AddItem() {
     const[model, setModel]=useState('');
     const[media, setMedia]=useState('');
 
+    //Bundles state into object and makes a dispatch call
+    //with newItem object
+    const handleSave = () =>{
+        const newItem = {
+            name: itemName,
+            brand: brand,
+            model: model,
+            upload: media,
+        }
+        console.log(newItem);
 
+        dispatch({type:'ADD_ITEM', payload: newItem})
+    }
 
     return (
         <div className="addItemSet">
-            <div className="addItembox">
+            <div className="addItemBox">
                 <h2>Individual Item</h2>
 
                 <form>
+                    {/* Each text field will listen for changes and set corresponding state */}
                     <TextField
-                        onChange={(event) => setSpecies(event.target.value)} 
+                        onChange={(event) => setItemName(event.target.value)} 
                         id="outlined-basic" 
                         label="Item Name" 
                         variant="outlined" 
                         required /> 
                     <br />
-                    <TextField id="outlined-basic" 
+                    <TextField 
+                        onChange={(event) => setBrand(event.target.value)}
+                        id="outlined-basic" 
                         label="Brand" 
                         variant="outlined" 
                         required />
                     <br />
-                    <TextField id="outlined-basic" 
+                    <TextField
+                        onChange={(event) => setModel(event.target.value)} 
+                        id="outlined-basic" 
                         label="Model" 
                         variant="outlined" />
                     <br />
-                    <TextField id="outlined-basic" 
+                    <TextField 
+                        onChange={(event) => setMedia(event.target.value)}
+                        id="outlined-basic" 
                         label="Picture/Video URL" 
                         variant="outlined" />
                     <br />
-                    <Button variant="contained" 
+                    <Button 
+                        onClick={handleSave}
+                        variant="contained" 
                         color="primary">
                         Save
                     </Button>
@@ -54,7 +75,7 @@ function AddItem() {
                 </form>
             </div>
 
-            <div className="addItembox">
+            <div className="addItemBox">
                 <h2>New Room</h2>
                 <img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                     width="350px"
