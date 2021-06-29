@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AddItemsDecision from '../AddItemsDecision/AddItemsDecision';
+import AddItem from '../AddItem/AddItem';
+import AddRoom from '../AddRoom/AddRoom';
 
 import './App.css';
 
@@ -58,6 +60,29 @@ function App() {
           >
             <UserPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/decision"
+          >
+            <AddItemsDecision />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/item"
+          >
+            <AddItem />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/room"
+          >
+            <AddRoom />
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -101,14 +126,6 @@ function App() {
             authRedirect="/user"
           >
             <LandingPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path="/decision"
-            authRedirect="/user"
-          >
-            <AddItemsDecision />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
