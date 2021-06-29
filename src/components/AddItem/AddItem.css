@@ -1,0 +1,10 @@
+.addItemSet{
+    display: flex;
+    justify-content: center;
+}
+
+.addItembox{
+    margin-left: 5%;
+    display: inline-block;
+    text-align: center;
+}
