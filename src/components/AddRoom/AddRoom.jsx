@@ -79,7 +79,7 @@ function AddRoom(){
                 <p>Appliances, TV, Etc</p>
                 <Button variant="contained" color="primary"
                     onClick={() => { history.push('/item') }} >
-                    Add Room
+                    Add Item
                  </Button>
             </div>
         </div>
