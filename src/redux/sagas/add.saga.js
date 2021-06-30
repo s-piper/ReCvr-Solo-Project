@@ -4,9 +4,11 @@ import axios from 'axios';
 
 function* addItem (action){
     try{
-        yield axios.post('api/item', action.payload)
+        yield axios.post('api/item', action.payload);
+        yield put({type: 'SUCCESS'});
     }catch(err) {
         console.log('Error in Add Item', err);
+        yield put ({type: 'FAILURE'});
     }
 }
 

@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './AddItem.css'
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-
-
 function AddItem() {
 
     const history=useHistory();
     const dispatch = useDispatch();
+    const response = useSelector((store) => store.add);
 
     const[itemName, setItemName]=useState('');
     const[brand, setBrand]=useState('');
@@ -36,6 +35,10 @@ function AddItem() {
         <div className="addItemSet">
             <div className="addItemBox">
                 <h2>Individual Item</h2>
+                {response.addReducer && (
+                <h3 className="alert" role="alert">
+                    {response.addReducer}
+                </h3>)}
 
                 <form>
                     {/* Each text field will listen for changes and set corresponding state */}
