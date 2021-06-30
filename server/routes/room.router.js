@@ -19,9 +19,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         console.log('req.body', req.body);
         //Adding room to "room" table in the database
         const queryText = `INSERT INTO "room" ("room_name", "description",
-                            "upload", "user_id")`;
+                            "upload", "user_id")
+                            VALUES($1, $2, $3, $4)`;
                         
-        pool.query(queryText, [req.body.room_name, req.body.description, req.body.upload, req.user.id])
+        pool.query(queryText, [req.body.name, req.body.description, req.body.upload, req.user.id])
             .then((result) =>{
                 res.sendStatus(201);
             }).catch(err => {

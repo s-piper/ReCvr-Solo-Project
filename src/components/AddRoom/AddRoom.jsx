@@ -18,7 +18,7 @@ function AddRoom(){
 
     const handleSave = () =>{
         const newItem = {
-            room_name: roomName,
+            name: roomName,
             description: desc,
             upload: media,
         }
