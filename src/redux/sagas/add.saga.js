@@ -14,7 +14,7 @@ function* addItem (action){
 //Makes the server call for rooms
 function* addRoom (action){
     try{
-        yield axios.post('api/item', action.payload);
+        yield axios.post('api/room', action.payload);
         yield put({type: 'SUCCESS'});
     }catch(err) {
         console.log('Error in Add Room', err);
