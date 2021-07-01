@@ -28,7 +28,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/item', itemRouter);
 app.use('/api/room', roomRouter);
-app.use('api/insurance', insuranceRouter);
+app.use('/api/insurance', insuranceRouter);
 
 // Serve static files
 app.use(express.static('build'));

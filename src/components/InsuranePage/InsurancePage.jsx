@@ -9,12 +9,16 @@ import TextField from '@material-ui/core/TextField';
 function InsurancePage() {
 
     const dispatch = useDispatch();
+    const insurance = useSelector((store)=>store.insurance)
+
+    console.log(insurance);
 
     useEffect(()=>{
         dispatch({
             type:'FETCH_INSURANCE'
         });
     }, []);
+
 
 
     return (

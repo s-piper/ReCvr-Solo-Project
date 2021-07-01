@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* fetchInsurance(action) {
     try{
-        yield axios.get('api/insurance'):
+        yield axios.get('api/insurance');
             yield put({
                 type:'SET_INSURANCE',
                 payload:res.data,

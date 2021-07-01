@@ -6,9 +6,10 @@ const {
 } = require('../modules/authentication-middleware');
 
 
-//Gets all data for insurance for user
+//Gets all insurance data for user
 router.get('/', rejectUnauthenticated, (req, res) => {
 
+    if(req.isAuthenticated()){
     const queryText = `SELECT * FROM "insurance" WHERE "user_id" = $1;`;
 
     pool.query(queryText,[req.user.id])
@@ -18,5 +19,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         }).catch(err =>{
             console.log('Error insurance get', err);
             res.sendStatus(500);
-        })
+        });
+    } else {
+        res.sendStatus(403);
+    }
 });
+
+module.exports = router;
