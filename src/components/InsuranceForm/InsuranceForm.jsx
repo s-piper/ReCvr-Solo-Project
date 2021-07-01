@@ -7,18 +7,20 @@ import TextField from '@material-ui/core/TextField';
 function InsuranceForm() {
 
 
-    const dispatch=useHistory();
 
     const[company, setCompany]=useState('');
     const[phone, setPhone]=useState(0);
     const[policy, setPolicy]=useState('');
     const[policyValue, setPolicyValue]=useState(0);
 
+    const handleSave = () =>{
+        
+    }
+
 
     return (
 
         <div>
-            <h2>Insurance</h2>
 
             <TextField
                 onChange={(event) => setCompany(event.target.value)}
@@ -44,6 +46,10 @@ function InsuranceForm() {
                 label="Policy Value"
                 variant="outlined"
                 required />
+            <Button variant="contained" color="primary"
+                    onClick={handleSave} >
+                    Save
+                 </Button>
 
 
 
@@ -51,4 +57,4 @@ function InsuranceForm() {
     )
 }
 
-export default InsurancePage;
+export default InsuranceForm;

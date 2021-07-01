@@ -24,6 +24,7 @@ import AddItem from '../AddItem/AddItem';
 import AddRoom from '../AddRoom/AddRoom';
 
 import './App.css';
+import InsurancePage from '../InsuranePage/InsurancePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -81,6 +82,14 @@ function App() {
             path="/room"
           >
             <AddRoom />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/insurance"
+          >
+            <InsurancePage />
           </ProtectedRoute>
 
 
