@@ -50,6 +50,7 @@ function* addSaga() {
     yield takeLatest('ADD_ITEM', addItem);
     yield takeLatest('ADD_ROOM', addRoom);
     yield takeLatest('ADD_INSURANCE', addInsurance);
+    yield takeLatest('FETCH_ITEM', fetchItem);
 }
 
 export default addSaga;

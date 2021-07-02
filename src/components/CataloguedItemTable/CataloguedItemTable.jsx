@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
-function CataloguedItemTable(){
+function CataloguedItemTable() {
 
-    const 
+    const items = useSelector((store) => store.item);
+    const dispatch = useDispatch();
 
-    return(
+    console.log('items table', items);
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_ITEM'
+        });
+    }, []);
+
+    return (
         <div>
 
         </div>

@@ -9,7 +9,7 @@ const {
 router.get('/', rejectUnauthenticated, (req, res) => {
    
     if(req.isAuthenticated()){
-        const queryText = `SELECT * FROM "items" WHERE "user_id = $1`;
+        const queryText = `SELECT * FROM "items" WHERE "user_id" = $1`;
 
         pool.query(queryText, [req.user.id])
             .then(result => {
