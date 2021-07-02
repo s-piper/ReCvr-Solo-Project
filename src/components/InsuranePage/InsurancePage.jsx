@@ -5,11 +5,13 @@ import InsuranceForm from '../InsuranceForm/InsuranceForm';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { render } from 'react-dom';
+import { useHistory } from 'react-router-dom';
 
 
 function InsurancePage() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const insurance = useSelector((store) => store.insurance)
 
 
@@ -34,6 +36,11 @@ function InsurancePage() {
                     <p>{insurance[0]?.phone}</p>
                     <p>{insurance[0]?.policy}</p>
                     <p>{insurance[0]?.value}</p>
+                    <Button variant="contained" color="primary"
+                    onClick={() => { history.push('/insurance-edit') }} >
+                    Edit
+                 </Button>
+
                 </div>
 
             ) : (
@@ -41,9 +48,6 @@ function InsurancePage() {
                     <InsuranceForm />
                 </div>
             )}
-
-
-
         </div>
     )
 }

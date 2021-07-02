@@ -25,6 +25,7 @@ import AddRoom from '../AddRoom/AddRoom';
 
 import './App.css';
 import InsurancePage from '../InsuranePage/InsurancePage';
+import InsuranceEdit from '../InsuranceEdit/InsuranceEdit';
 
 function App() {
   const dispatch = useDispatch();
@@ -63,21 +64,18 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
             exact
             path="/decision"
           >
             <AddItemsDecision />
           </ProtectedRoute>
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
             exact
             path="/item"
           >
             <AddItem />
           </ProtectedRoute>
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
             exact
             path="/room"
           >
@@ -85,11 +83,17 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
             exact
             path="/insurance"
           >
             <InsurancePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/insurance-edit"
+          >
+            <InsuranceEdit />
           </ProtectedRoute>
 
 
