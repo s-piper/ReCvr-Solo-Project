@@ -48,5 +48,24 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(403);
     }
 });
+//Updates insurance data
+router.put('/', rejectUnauthenticated, (req, res) => {
+    if(req.isAuthenticated()) {
+        console.log('req.body', req.body);
+        
+        const queryText = `UPDATE "insurance" SET "company"=$1, "phone"=$2, "policy"=$3, "value"=$4
+                            WHERE "user_id" = $5`;
+
+        pool.query(queryText, [req.body.company, req.body.phone, req.body.policy, req.body.value, req.user.id])
+            .then((results) => {
+                res.sendStatus(200);
+            }).catch(err => {
+                console.log('put error', err);
+                res.sendStatus(500);
+            });        
+    } else {
+        res.sendStatus(500);
+    }
+});
 
 module.exports = router;

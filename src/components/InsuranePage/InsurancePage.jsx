@@ -32,10 +32,10 @@ function InsurancePage() {
             {/* Conditionally renders the form or stored info. */}
             {insurance[0]?.file ? (
                 <div>
-                    <p>{insurance[0]?.company}</p>
-                    <p>{insurance[0]?.phone}</p>
-                    <p>{insurance[0]?.policy}</p>
-                    <p>{insurance[0]?.value}</p>
+                    <p>Company: {insurance[0]?.company}</p>
+                    <p>Phone: {insurance[0]?.phone}</p>
+                    <p>Policy: {insurance[0]?.policy}</p>
+                    <p>Value: ${insurance[0]?.value}</p>
                     <Button variant="contained" color="primary"
                     onClick={() => { history.push('/insurance-edit') }} >
                     Edit
