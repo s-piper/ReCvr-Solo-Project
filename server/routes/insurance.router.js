@@ -10,17 +10,17 @@ const {
 //Gets all insurance data for user
 router.get('/', rejectUnauthenticated, (req, res) => {
 
-    if(req.isAuthenticated()){
-    const queryText = `SELECT * FROM "insurance" WHERE "user_id" = $1;`;
+    if (req.isAuthenticated()) {
+        const queryText = `SELECT * FROM "insurance" WHERE "user_id" = $1;`;
 
-    pool.query(queryText,[req.user.id])
-        .then(result =>{
-            res.send(result.rows);
-            console.log('insurance data sent', result.rows);
-        }).catch(err =>{
-            console.log('Error insurance get', err);
-            res.sendStatus(500);
-        });
+        pool.query(queryText, [req.user.id])
+            .then(result => {
+                res.send(result.rows);
+                console.log('insurance data sent', result.rows);
+            }).catch(err => {
+                console.log('Error insurance get', err);
+                res.sendStatus(500);
+            });
     } else {
         res.sendStatus(403);
     }
@@ -28,17 +28,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //Posts insurance data for user
 router.post('/', rejectUnauthenticated, (req, res) => {
-    if(req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         console.log('req.body', req.body);
         console.log('user', req.user);
-        
+
 
         const queryText = `INSERT INTO "insurance" ("user_id", "company",
                             "phone", "policy", "value", "file")
                             VALUES($1, $2, $3, $4, $5, $6)`;
 
         pool.query(queryText, [req.user.id, req.body.company, req.body.phone, req.body.policy, req.body.value, true])
-            .then((results) =>{
+            .then((results) => {
                 res.sendStatus(201);
             }).catch(err => {
                 console.log('post error', err);
@@ -50,9 +50,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 //Updates insurance data
 router.put('/', rejectUnauthenticated, (req, res) => {
-    if(req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         console.log('req.body', req.body);
-        
+
         const queryText = `UPDATE "insurance" SET "company"=$1, "phone"=$2, "policy"=$3, "value"=$4
                             WHERE "user_id" = $5`;
 
@@ -62,7 +62,7 @@ router.put('/', rejectUnauthenticated, (req, res) => {
             }).catch(err => {
                 console.log('put error', err);
                 res.sendStatus(500);
-            });        
+            });
     } else {
         res.sendStatus(500);
     }
