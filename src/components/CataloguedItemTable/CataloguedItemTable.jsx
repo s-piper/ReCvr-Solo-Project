@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import { useHistory } from 'react-router-dom';
 
 function CataloguedItemTable() {
 
     const items = useSelector((store) => store.item);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     console.log('items table', items);
 
@@ -14,6 +16,15 @@ function CataloguedItemTable() {
             type: 'FETCH_ITEM'
         });
     }, []);
+
+    const handleDelete = (item) => {
+
+        console.log('handledelete', item);
+        dispatch({
+            type: 'DELETE_ITEM',
+            payload: item
+        })
+    }
 
     return (
         <div>
@@ -36,8 +47,14 @@ function CataloguedItemTable() {
                             <td>{item.brand}</td>
                             <td>{item.model}</td>
                             <td>{item.upload}</td>
-                            <td>{<button>Edit</button>}</td>
-                            <td>{<button>Delete</button>}</td>
+                            <td>{<button onClick={() => { history.push('/item-edit') }}>
+                                Edit
+                                </button>}
+                            </td>
+                            <td>{<button onClick={ () => handleDelete (item)}>
+                                Delete
+                                </button>}
+                            </td>
                         </tr>)
                         })}
                 </tbody>

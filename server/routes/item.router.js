@@ -49,4 +49,39 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     }
 });
 
+//Delete Item
+
+router.delete('/:id', (req, res) => {
+    console.log('Delete', req.body, req.params.id);
+    const queryText = `SELECT * FROM "items" WHERE "id" = $1`;
+    // GET item data from router to find user_id source of truth
+    pool.query(queryText, [req.params.id])
+      .then(result => {
+  
+        
+        // now that we have data, process delete request
+        const userId = result.rows[0].user_id;
+        console.log('user ID inside get', userId);
+        
+        if (userId === req.user.id) {
+          const queryText =`DELETE FROM "items" WHERE "id" = $1;`;
+          pool.query(queryText, [req.params.id])
+            .then(result => {
+              console.log('Item Deleted');
+            })
+            .catch(err => {
+              console.log('Problem with DELETE in item route', err);
+            })
+        }
+      }) // end of .then for GET request
+      // catch for the GET request
+      .catch(err => {
+        console.log('Problem with GET inside delete request:', err)
+      })
+  
+    res.sendStatus(200);
+    
+  });
+  
+
 module.exports = router;
