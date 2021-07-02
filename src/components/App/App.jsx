@@ -27,6 +27,7 @@ import './App.css';
 import InsurancePage from '../InsuranePage/InsurancePage';
 import InsuranceEdit from '../InsuranceEdit/InsuranceEdit';
 import CataloguedPage from '../CataloguedPage/CataloguedPage';
+import ItemEdit from '../ItemEdit/ItemEdit';
 
 function App() {
   const dispatch = useDispatch();
@@ -102,6 +103,13 @@ function App() {
             path="/catalogue"
           >
             <CataloguedPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/item-edit"
+          >
+            <ItemEdit />
           </ProtectedRoute>
 
 
