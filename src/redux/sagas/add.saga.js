@@ -22,9 +22,19 @@ function* addRoom (action){
     }
 }
 
+function* addInsurance (action){
+    try{
+        yield axios.post('api/insurance', action.payload);
+        yield put({type: 'SET_INSURANCE'})
+    }catch(err) {
+        console.log('Error in Add Insurance', err);
+    }
+}
+
 function* addSaga(){
     yield takeLatest('ADD_ITEM', addItem);
     yield takeLatest('ADD_ROOM', addRoom);
+    yield takeLatest('ADD_INSURANCE', addInsurance);
 }
 
 export default addSaga;

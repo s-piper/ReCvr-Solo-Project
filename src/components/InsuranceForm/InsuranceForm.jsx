@@ -6,15 +6,23 @@ import TextField from '@material-ui/core/TextField';
 
 function InsuranceForm() {
 
-
+    const dispatch=useDispatch();
 
     const[company, setCompany]=useState('');
     const[phone, setPhone]=useState(0);
     const[policy, setPolicy]=useState('');
-    const[policyValue, setPolicyValue]=useState(0);
+    const[value, setValue]=useState(0);
 
     const handleSave = () =>{
-        
+        //Packages up inputs to post
+      const newInsurance={
+            company: company,
+            phone: phone,
+            policy: policy,
+            value: value,
+        }
+        dispatch({type:'ADD_INSURANCE', payload: newInsurance})
+        dispatch({type: 'FETCH_INSURANCE'});
     }
 
 
@@ -41,7 +49,7 @@ function InsuranceForm() {
                 variant="outlined"
                 required />
             <TextField
-                onChange={(event) => setPolicyValue(event.target.value)}
+                onChange={(event) => setValue(event.target.value)}
                 id="outlined-basic"
                 label="Policy Value"
                 variant="outlined"
