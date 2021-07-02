@@ -13,6 +13,8 @@ function CataloguedPage(){
 
     return(
         <div>
+
+            <h2>Items</h2>
             <CataloguedItemTable />
 
         </div>
