@@ -26,6 +26,22 @@ function* fetchItem(action) {
     }
 }
 
+//Gets rooms from database
+function* fetchRoom(action) {
+    try {
+        const res = yield axios.get('api/room');
+        yield put({
+            type: 'SET_ROOM',
+            payload: res.data,
+        })
+        console.log('Fetch Room', res.data);
+    } catch {
+        console.log('Fetch Room Error');
+    }
+}
+
+
+
 //Makes the server call for rooms
 function* addRoom(action) {
     try {
@@ -51,6 +67,7 @@ function* addSaga() {
     yield takeLatest('ADD_ROOM', addRoom);
     yield takeLatest('ADD_INSURANCE', addInsurance);
     yield takeLatest('FETCH_ITEM', fetchItem);
+    yield takeLatest('FETCH_ROOM', fetchRoom);
 }
 
 export default addSaga;
