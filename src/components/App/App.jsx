@@ -26,6 +26,7 @@ import AddRoom from '../AddRoom/AddRoom';
 import './App.css';
 import InsurancePage from '../InsuranePage/InsurancePage';
 import InsuranceEdit from '../InsuranceEdit/InsuranceEdit';
+import CataloguedPage from '../CataloguedPage/CataloguedPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -94,6 +95,13 @@ function App() {
             path="/insurance-edit"
           >
             <InsuranceEdit />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/catalogue"
+          >
+            <CataloguedPage />
           </ProtectedRoute>
 
 

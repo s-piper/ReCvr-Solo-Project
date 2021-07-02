@@ -5,9 +5,23 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
+//Get to get all from items table
+router.get('/', rejectUnauthenticated, (req, res) => {
+   
+    if(req.isAuthenticated()){
+        const queryText = `SELECT * FROM "items" WHERE "user_id" = $1`;
 
-router.get('/', (req, res) => {
-    // GET route code here
+        pool.query(queryText, [req.user.id])
+            .then(result => {
+                res.send(result.rows);
+                console.log('items data sent', result.rows);
+            }).catch(err => {
+                console.log('Error Item Get', err);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 //Post route to items table with an endpoint to check for login

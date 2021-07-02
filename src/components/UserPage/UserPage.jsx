@@ -26,7 +26,7 @@ function UserPage() {
     history.push('/decision')
   };
   const moveToCataloged = () =>{
-    history.push()
+    history.push('/catalogue')
   };
   const moveToInsurance = () =>{
     history.push('/insurance')
