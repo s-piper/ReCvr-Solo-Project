@@ -22,45 +22,25 @@ function InsurancePage() {
 
     console.log('insurancepage', insurance[0]?.phone);
 
-    // const cardOrEdit = () => {
-    //     if (insurance) {
-
-    //         <div>
-    //             <p>{insurance[0]?.company}</p>
-    //             <p>{insurance[0]?.phone}</p>
-    //             <p>{insurance[0]?.policy}</p>
-    //             <p>{insurance[0]?.value}</p>
-    //         </div>
-    //     } else {
-    //         <di>
-    //             <InsuranceForm />
-    //         </di>
-    //     }
-    // }
 
     return (
 
         <div>
             <h2>Insurance</h2>
-            {/* conditionally renders the insurance form or stored info */}
-            {insurance ? (
-               
-                <InsuranceForm />
+            {/* Conditionally renders the form or stored info. */}
+            {insurance[0]?.file ? (
+                <div>
+                    <p>{insurance[0]?.company}</p>
+                    <p>{insurance[0]?.phone}</p>
+                    <p>{insurance[0]?.policy}</p>
+                    <p>{insurance[0]?.value}</p>
+                </div>
 
             ) : (
-                // <InsuranceForm />
-
                 <div>
-                <p>{insurance[0]?.company}</p>
-                <p>{insurance[0]?.phone}</p>
-                <p>{insurance[0]?.policy}</p>
-                <p>{insurance[0]?.value}</p>
-            </div>
-
-
+                    <InsuranceForm />
+                </div>
             )}
-
-
 
 
 

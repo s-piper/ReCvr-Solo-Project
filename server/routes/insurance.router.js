@@ -34,10 +34,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         
 
         const queryText = `INSERT INTO "insurance" ("user_id", "company",
-                            "phone", "policy", "value")
-                            VALUES($1, $2, $3, $4, $5)`;
+                            "phone", "policy", "value", "file")
+                            VALUES($1, $2, $3, $4, $5, $6)`;
 
-        pool.query(queryText, [req.user.id, req.body.company, req.body.phone, req.body.policy, req.body.value])
+        pool.query(queryText, [req.user.id, req.body.company, req.body.phone, req.body.policy, req.body.value, true])
             .then((results) =>{
                 res.sendStatus(201);
             }).catch(err => {
