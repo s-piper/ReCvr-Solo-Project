@@ -4,13 +4,13 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 
 
-function CataloguedRoomTable () {
+function CataloguedRoomTable() {
 
     const rooms = useSelector((store) => store.room);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    console.log('items table', rooms);
+    console.log('rooms table', rooms);
 
     useEffect(() => {
         dispatch({
@@ -18,19 +18,47 @@ function CataloguedRoomTable () {
         });
     }, []);
 
-    const handleDelete = (item) => {
+    const handleDelete = (room) => {
 
-        console.log('handledelete', item);
+        console.log('handleDelete', room);
         dispatch({
-            type: 'DELETE_ITEM',
-            payload: item
+            type: 'DELETE_ROOM',
+            payload: room
         })
     }
 
 
-    return(
+    return (
 
         <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Description</th>
+                        <th>Upload</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rooms.map((room, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{room.room_name}</td>
+                                <td>{room.description}</td>
+                                <td>{room.upload}</td>
+                                <td>{<button onClick={() => { history.push('') }}>
+                                    Edit
+                                </button>}
+                                </td>
+                                <td>{<button onClick={() => handleDelete(room)}>
+                                    Delete
+                                </button>}
+                                </td>
+                            </tr>)
+                    })}
+                </tbody>
+            </table>
+
 
         </div>
     )

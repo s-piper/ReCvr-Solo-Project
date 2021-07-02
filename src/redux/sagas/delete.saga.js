@@ -14,8 +14,23 @@ function* deleteItem(action) {
     }
 }
 
+function* deleteRoom(action) {
+    console.log('got to deleteROOM', action.payload);
+    
+    try {
+        // console.log(action.payload);
+        yield axios.delete(`/api/room/${action.payload.id}`)
+        // refresh DOM
+        yield put({type: 'FETCH_ROOM'});
+    } catch (err) {
+        console.log('DELETE_ROOM:', err)
+    }
+}
+
+
 function* deleteSaga() {
     yield takeLatest('DELETE_ITEM', deleteItem);
+    yield takeLatest('DELETE_ROOM', deleteRoom)
 }
 
 export default deleteSaga;
