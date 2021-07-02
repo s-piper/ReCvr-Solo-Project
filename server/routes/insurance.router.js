@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     pool.query(queryText,[req.user.id])
         .then(result =>{
             res.send(result.rows);
-            console.log('insurance data sent');
+            console.log('insurance data sent', result.rows);
         }).catch(err =>{
             console.log('Error insurance get', err);
             res.sendStatus(500);

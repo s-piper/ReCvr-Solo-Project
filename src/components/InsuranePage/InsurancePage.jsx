@@ -4,34 +4,66 @@ import InsuranceForm from '../InsuranceForm/InsuranceForm';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { render } from 'react-dom';
 
 
 function InsurancePage() {
 
     const dispatch = useDispatch();
-    const insurance = useSelector((store)=>store.insurance)
+    const insurance = useSelector((store) => store.insurance)
 
-    console.log(insurance);
 
-    useEffect(()=>{
+
+    useEffect(() => {
         dispatch({
-            type:'FETCH_INSURANCE'
+            type: 'FETCH_INSURANCE'
         });
     }, []);
 
+    console.log('insurancepage', insurance[0]?.phone);
 
+    // const cardOrEdit = () => {
+    //     if (insurance) {
+
+    //         <div>
+    //             <p>{insurance[0]?.company}</p>
+    //             <p>{insurance[0]?.phone}</p>
+    //             <p>{insurance[0]?.policy}</p>
+    //             <p>{insurance[0]?.value}</p>
+    //         </div>
+    //     } else {
+    //         <di>
+    //             <InsuranceForm />
+    //         </di>
+    //     }
+    // }
 
     return (
 
         <div>
             <h2>Insurance</h2>
+            {/* conditionally renders the insurance form or stored info */}
+            {insurance ? (
+               
+                <InsuranceForm />
 
-            <InsuranceForm />
+            ) : (
+                // <InsuranceForm />
 
-            <Button variant="contained" color="primary"
-                    onClick={handleSave} >
-                    Save
-                 </Button>
+                <div>
+                <p>{insurance[0]?.company}</p>
+                <p>{insurance[0]?.phone}</p>
+                <p>{insurance[0]?.policy}</p>
+                <p>{insurance[0]?.value}</p>
+            </div>
+
+
+            )}
+
+
+
+
+
         </div>
     )
 }

@@ -1,4 +1,4 @@
-const insuranceReducer=(state={}, action) =>{
+const insuranceReducer=(state=[], action) =>{
     switch(action.type){
         case 'SET_INSURANCE':
             return action.payload;
