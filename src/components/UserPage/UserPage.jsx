@@ -29,7 +29,7 @@ function UserPage() {
     history.push()
   };
   const moveToInsurance = () =>{
-    history.push()
+    history.push('/insurance')
   };
 
 
