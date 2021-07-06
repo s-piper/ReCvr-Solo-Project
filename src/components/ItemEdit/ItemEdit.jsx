@@ -9,8 +9,10 @@ function ItemEdit(){
 
     const history=useHistory();
     const dispatch = useDispatch();
+    //contains info values from selected item to edit
     const item = useSelector((store) => store.editItem);
 
+    //sets values from inputs
     const[itemName, setItemName]=useState('');
     const[brand, setBrand]=useState('');
     const[model, setModel]=useState('');
@@ -24,10 +26,14 @@ function ItemEdit(){
             brand: brand,
             model: model,
             upload: media,
+            id: item.id,
         }
         console.log(editItem);
 
-        dispatch({type:'EDIT_ITEM', payload: item})
+        dispatch({type:'EDIT_ITEM_DB', payload: editItem})
+        dispatch({type: 'FETCH_ITEM'})
+
+        history.push('/catalogue')
     }
 
 
