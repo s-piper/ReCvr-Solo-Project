@@ -82,5 +82,26 @@ router.delete('/:id', (req, res) => {
     
   });
 
+    // Edits items in DB
+    router.put('/', rejectUnauthenticated, (req, res) => {
+      if (req.isAuthenticated()) {
+          console.log('req.body', req.body);
+  
+          const queryText = `UPDATE "room" SET "room_name"=$1, "description"=$2, "upload"=$3
+                              WHERE "id" = $4`;
+  
+          pool.query(queryText, [req.body.name, req.body.description, req.body.upload, req.body.id])
+              .then((results) => {
+                  res.sendStatus(200);
+              }).catch(err => {
+                  console.log('put error', err);
+                  res.sendStatus(500);
+              });
+      } else {
+          res.sendStatus(500);
+      }
+  });
+  
+
 
 module.exports = router;
