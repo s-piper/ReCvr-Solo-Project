@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
@@ -7,14 +9,14 @@ function RoomEdit() {
     const history = useHistory();
     const dispatch = useDispatch();
     //contains info values from selected item to edit
-    const room = useSelector((store) => store.editItem);
+    const room = useSelector((store) => store.editRoom);
 
     //sets values from inputs
     const [roomName, setRoomName] = useState('');
     const [desc, setDesc] = useState('');
     const [media, setMedia] = useState('');
 
-    console.log('item edit page', item);
+    console.log('room edit page', room);
 
     const handleSave = () => {
         const editRoom = {
@@ -39,14 +41,14 @@ function RoomEdit() {
             <TextField
                 onChange={(event) => setRoomName(event.target.value)}
                 id="outlined-basic"
-                label={item.name}
+                label={room.room_name}
                 variant="outlined"
                 required />
             <br />
             <TextField
                 onChange={(event) => setDesc(event.target.value)}
                 id="outlined-basic"
-                label={item.brand}
+                label={room.description}
                 variant="outlined"
                 required />
             <br />

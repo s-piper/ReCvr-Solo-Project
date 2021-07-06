@@ -27,6 +27,16 @@ function CataloguedRoomTable() {
         })
     }
 
+    const handleEdit = (room) => {
+
+        dispatch({type:'EDIT_ROOM', payload: room});
+        history.push('/room-edit')
+
+        console.log('handleEdit', room);
+
+    }
+
+
 
     return (
 
@@ -46,7 +56,7 @@ function CataloguedRoomTable() {
                                 <td>{room.room_name}</td>
                                 <td>{room.description}</td>
                                 <td>{room.upload}</td>
-                                <td>{<button onClick={() => { history.push('') }}>
+                                <td>{<button onClick={() => {handleEdit(room)}}>
                                     Edit
                                 </button>}
                                 </td>
