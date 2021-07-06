@@ -1,37 +1,32 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 
-function ItemEdit() {
+function RoomEdit() {
 
     const history = useHistory();
     const dispatch = useDispatch();
     //contains info values from selected item to edit
-    const item = useSelector((store) => store.editItem);
+    const room = useSelector((store) => store.editItem);
 
     //sets values from inputs
-    const [itemName, setItemName] = useState('');
-    const [brand, setBrand] = useState('');
-    const [model, setModel] = useState('');
+    const [roomName, setRoomName] = useState('');
+    const [desc, setDesc] = useState('');
     const [media, setMedia] = useState('');
 
     console.log('item edit page', item);
 
     const handleSave = () => {
-        const editItem = {
-            name: itemName,
-            brand: brand,
-            model: model,
+        const editRoom = {
+            name: roomName,
+            description: desc,
             upload: media,
-            id: item.id,
+            id: room.id,
         }
-        console.log(editItem);
+        console.log(editRoom);
 
-        dispatch({ type: 'EDIT_ITEM_DB', payload: editItem })
-        dispatch({ type: 'FETCH_ITEM' })
+        dispatch({ type: 'EDIT_ROOM_DB', payload: editRoom })
+        dispatch({ type: 'FETCH_ROOM' })
 
         history.push('/catalogue')
     }
@@ -42,24 +37,18 @@ function ItemEdit() {
 
         <div>
             <TextField
-                onChange={(event) => setItemName(event.target.value)}
+                onChange={(event) => setRoomName(event.target.value)}
                 id="outlined-basic"
                 label={item.name}
                 variant="outlined"
                 required />
             <br />
             <TextField
-                onChange={(event) => setBrand(event.target.value)}
+                onChange={(event) => setDesc(event.target.value)}
                 id="outlined-basic"
                 label={item.brand}
                 variant="outlined"
                 required />
-            <br />
-            <TextField
-                onChange={(event) => setModel(event.target.value)}
-                id="outlined-basic"
-                label={item.model}
-                variant="outlined" />
             <br />
             <TextField
                 onChange={(event) => setMedia(event.target.value)}
@@ -79,4 +68,4 @@ function ItemEdit() {
     )
 }
 
-export default ItemEdit;
+export default RoomEdit;
