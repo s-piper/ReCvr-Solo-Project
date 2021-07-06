@@ -1,11 +1,10 @@
-const itemReducer = (state=[], action) =>{
+const editItemReducer = (state={}, action) =>{
     switch(action.type){
-        case 'SET_ITEM':
+        case 'EDIT_ITEM':
             return action.payload;
         default:
             return state;
     }
 }
 
-
-export default itemReducer;
+export default editItemReducer;

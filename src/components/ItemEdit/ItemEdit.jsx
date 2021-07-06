@@ -9,12 +9,14 @@ function ItemEdit(){
 
     const history=useHistory();
     const dispatch = useDispatch();
-    const response = useSelector((store) => store.add);
+    const item = useSelector((store) => store.editItem);
 
     const[itemName, setItemName]=useState('');
     const[brand, setBrand]=useState('');
     const[model, setModel]=useState('');
     const[media, setMedia]=useState('');
+
+    console.log('item edit page', item);
 
     const handleSave = () =>{
         const editItem = {
@@ -25,7 +27,7 @@ function ItemEdit(){
         }
         console.log(editItem);
 
-        dispatch({type:'EDIT_ITEM', payload: editItem})
+        dispatch({type:'EDIT_ITEM', payload: item})
     }
 
 
@@ -36,21 +38,21 @@ function ItemEdit(){
                                 <TextField
                         onChange={(event) => setItemName(event.target.value)} 
                         id="outlined-basic" 
-                        label="Item Name" 
+                        label={item.name}
                         variant="outlined" 
                         required /> 
                     <br />
                     <TextField 
                         onChange={(event) => setBrand(event.target.value)}
                         id="outlined-basic" 
-                        label="Brand" 
+                        label={item.brand} 
                         variant="outlined" 
                         required />
                     <br />
                     <TextField
                         onChange={(event) => setModel(event.target.value)} 
                         id="outlined-basic" 
-                        label="Model" 
+                        label={item.model} 
                         variant="outlined" />
                     <br />
                     <TextField 

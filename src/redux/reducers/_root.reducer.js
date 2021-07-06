@@ -5,6 +5,7 @@ import add from './add.reducer';
 import insurance from './insurance.reducer';
 import item from './item.reducer';
 import room from './room.reducer';
+import editItem from './editItem.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   insurance, //will have data from DB.  Result controls conditional render on insurance page
   item, //will contain item data from DB.
   room, //will contain room data.
+  editItem, //will be state that holds selected items to value to edit
 });
 
 export default rootReducer;

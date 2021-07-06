@@ -27,6 +27,7 @@ function InsuranceEdit() {
             value: value,
         }
         dispatch({type:'EDIT_INSURANCE', payload: editInsurance});
+        dispatch({type: 'FETCH_INSURANCE'});
         history.push('/insurance');
     }
 

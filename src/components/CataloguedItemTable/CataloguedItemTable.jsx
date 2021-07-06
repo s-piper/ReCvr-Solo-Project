@@ -19,11 +19,20 @@ function CataloguedItemTable() {
 
     const handleDelete = (item) => {
 
-        console.log('handledelete', item);
+        console.log('handleDelete', item);
         dispatch({
             type: 'DELETE_ITEM',
             payload: item
         })
+    }
+
+    const handleEdit = (item) => {
+
+        dispatch({type:'EDIT_ITEM', payload: item});
+        history.push('/item-edit')
+
+        console.log('handleEdit', item);
+
     }
 
     return (
@@ -47,11 +56,11 @@ function CataloguedItemTable() {
                             <td>{item.brand}</td>
                             <td>{item.model}</td>
                             <td>{item.upload}</td>
-                            <td>{<button onClick={() => { history.push('/item-edit') }}>
+                            <td>{<button onClick={() => {handleEdit(item)}}>
                                 Edit
                                 </button>}
                             </td>
-                            <td>{<button onClick={ () => handleDelete (item)}>
+                            <td>{<button onClick={() => handleDelete (item)}>
                                 Delete
                                 </button>}
                             </td>
