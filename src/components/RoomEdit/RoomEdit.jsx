@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 
 function RoomEdit() {
@@ -33,8 +34,6 @@ function RoomEdit() {
         history.push('/catalogue')
     }
 
-
-
     return (
 
         <div>
@@ -58,6 +57,7 @@ function RoomEdit() {
                 label="Picture/Video URL"
                 variant="outlined" />
             <br />
+
             <Button
                 onClick={handleSave}
                 variant="contained"
