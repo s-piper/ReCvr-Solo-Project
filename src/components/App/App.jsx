@@ -28,6 +28,7 @@ import InsurancePage from '../InsuranePage/InsurancePage';
 import InsuranceEdit from '../InsuranceEdit/InsuranceEdit';
 import CataloguedPage from '../CataloguedPage/CataloguedPage';
 import ItemEdit from '../ItemEdit/ItemEdit';
+import RoomEdit from '../RoomEdit/RoomEdit';
 
 function App() {
   const dispatch = useDispatch();
@@ -111,6 +112,14 @@ function App() {
           >
             <ItemEdit />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/room-edit"
+          >
+            <RoomEdit />
+          </ProtectedRoute>
+
 
 
           <ProtectedRoute

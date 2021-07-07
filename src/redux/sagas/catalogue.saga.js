@@ -9,9 +9,18 @@ function* editItem(action) {
     }
 }
 
+function* editRoom(action) {
+    try {
+        yield axios.put('api/room', action.payload);
+    } catch {
+        console.log('Error in Room Edit Saga');
+    }
+}
+
 
 function* catalogueSaga() {
     yield takeLatest('EDIT_ITEM_DB', editItem)
+    yield takeLatest('EDIT_ROOM_DB', editRoom)
 }
 
 export default catalogueSaga;
