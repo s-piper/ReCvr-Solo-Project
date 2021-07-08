@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
+import CataloguedPdf from '../CataloguedPdf/CataloguedPdf';
 
 function CataloguedItemTable() {
 
@@ -70,7 +71,7 @@ function CataloguedItemTable() {
             </table>
 
 
-
+            < CataloguedPdf />
         </div>
     )
 }
