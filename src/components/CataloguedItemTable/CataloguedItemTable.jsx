@@ -8,6 +8,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import { useHistory } from 'react-router-dom';
 import CataloguedPdf from '../CataloguedPdf/CataloguedPdf';
 
+
 function CataloguedItemTable() {
 
     const items = useSelector((store) => store.item);

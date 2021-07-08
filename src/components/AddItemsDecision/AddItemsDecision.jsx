@@ -18,7 +18,7 @@ function AddItemsDecision() {
                     width="350px"
                     height="250px" />
                 <p>Expensive Items</p>
-                <p>Appliances, TV, Etc</p>
+                <p>Appliances, TV, PC</p>
                 <Button variant="contained" color="primary"
                     onClick={() => { history.push('/item') }} >
                     Add Item
@@ -33,11 +33,11 @@ function AddItemsDecision() {
                     height="250px"
                 />
                 <p>
-                    The small stuff can add up. Pick a room and describe
+                    Pick a room and describe
                     what's in it.
                     </p>
                 <p>
-                    Bedroom: 9 Levis Jeans, 4 Pillows, 2 Ikea Nightstands
+                    Bedroom: 9 Levis Jeans, 2 Ikea Nightstands
                     </p>
                 <Button variant="contained" color="primary"
                     onClick={() => { history.push('/room') }} >

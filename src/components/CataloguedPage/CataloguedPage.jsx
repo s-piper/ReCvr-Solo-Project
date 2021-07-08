@@ -8,6 +8,7 @@ import { render } from 'react-dom';
 import { useHistory } from 'react-router-dom';
 import CataloguedItemTable from '../CataloguedItemTable/CataloguedItemTable';
 import CataloguedRoomTable from '../CataloguedRoomTable/CataloguedRoomTable';
+import EnhancedTable from '../ItemTableUi/ItemTableUi';
 
 function CataloguedPage(){
 
@@ -17,6 +18,8 @@ function CataloguedPage(){
 
             <h2>Items</h2>
             <CataloguedItemTable />
+
+            <EnhancedTable />
 
             <h2>Rooms</h2>
             <CataloguedRoomTable />
