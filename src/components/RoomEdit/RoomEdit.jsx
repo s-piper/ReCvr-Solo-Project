@@ -37,6 +37,9 @@ function RoomEdit() {
     return (
 
         <div>
+
+            <h2>Edit Room</h2>
+
             <TextField
                 onChange={(event) => setRoomName(event.target.value)}
                 id="outlined-basic"
@@ -63,6 +66,10 @@ function RoomEdit() {
                 variant="contained"
                 color="primary">
                 Save
+            </Button>
+            <Button variant="contained" color="secondary"
+                onClick={() => { history.push('/catalogue') }}>
+                Cancel
             </Button>
 
 

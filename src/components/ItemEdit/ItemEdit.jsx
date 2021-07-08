@@ -41,6 +41,9 @@ function ItemEdit() {
     return (
 
         <div>
+
+            <h2>Edit Item</h2>
+            
             <TextField
                 onChange={(event) => setItemName(event.target.value)}
                 id="outlined-basic"
@@ -72,6 +75,10 @@ function ItemEdit() {
                 variant="contained"
                 color="primary">
                 Save
+            </Button>
+            <Button variant="contained" color="secondary"
+                onClick={() => { history.push('/catalogue') }}>
+                Cancel
             </Button>
 
 
