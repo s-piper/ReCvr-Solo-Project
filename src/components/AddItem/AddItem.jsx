@@ -19,7 +19,7 @@ function AddItem() {
 
     //Bundles state into object and makes a dispatch call
     //with newItem object
-    const handleSave = () =>{
+    const handleSave = (event) =>{
         const newItem = {
             name: itemName,
             brand: brand,
@@ -29,6 +29,13 @@ function AddItem() {
         console.log(newItem);
 
         dispatch({type:'ADD_ITEM', payload: newItem})
+
+        setItemName('');
+        setBrand('');
+        setModel('');
+        setMedia('');
+
+        history.go(0);
     }
 
     return (
