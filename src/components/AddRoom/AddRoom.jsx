@@ -25,6 +25,12 @@ function AddRoom(){
         console.log(newItem);
 
         dispatch({type:'ADD_ROOM', payload: newItem})
+
+        setRoomName('');
+        setDesc('');
+        setMedia('');
+
+        history.go(0);
     }
 
 
