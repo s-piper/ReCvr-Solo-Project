@@ -44,7 +44,7 @@ function CataloguedItemTable() {
                         <th>Name</th>
                         <th>Brand</th>
                         <th>Model</th>
-                        <th>Media</th>
+                        <th>Upload</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -56,7 +56,9 @@ function CataloguedItemTable() {
                             <td>{item.name}</td>
                             <td>{item.brand}</td>
                             <td>{item.model}</td>
-                            <td>{item.upload}</td>
+                            <td>
+                                <img src={item.upload} width="50" height="50"/>
+                            </td>
                             <td>{<button onClick={() => {handleEdit(item)}}>
                                 Edit
                                 </button>}

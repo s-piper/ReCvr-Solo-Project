@@ -20,9 +20,9 @@ function CataloguedPdf() {
         doc.setFontSize(15);
 
         const title = "Re-Cvr Report";
-        const headers = [["NAME", "BRAND", "MODEL", "PHOTO"]];
+        const headers = [["NAME", "BRAND", "MODEL"]];
 
-        const data = items.map(elt => [elt.name, elt.brand, elt.model, elt.upload]);
+        const data = items.map(elt => [elt.name, elt.brand, elt.model]);
 
         let content = {
             startY: 50,

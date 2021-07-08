@@ -20,9 +20,9 @@ function CataloguedRoomPdf() {
         doc.setFontSize(15);
 
         const title = "Re-Cvr Report";
-        const headers = [["NAME", "DESCRIPTION", "PHOTO"]];
+        const headers = [["NAME", "DESCRIPTION"]];
 
-        const data = rooms.map(elt => [elt.room_name, elt.description, elt.upload]);
+        const data = rooms.map(elt => [elt.room_name, elt.description]);
 
         let content = {
             startY: 50,

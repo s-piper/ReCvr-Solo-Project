@@ -48,6 +48,8 @@ function CataloguedRoomTable() {
                         <th>Room Name</th>
                         <th>Description</th>
                         <th>Upload</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +58,9 @@ function CataloguedRoomTable() {
                             <tr key={i}>
                                 <td>{room.room_name}</td>
                                 <td>{room.description}</td>
-                                <td>{room.upload}</td>
+                                <td> 
+                                    <img src={room.upload} width="50" height="50" />
+                                </td>
                                 <td>{<button onClick={() => {handleEdit(room)}}>
                                     Edit
                                 </button>}
