@@ -78,7 +78,7 @@ function CataloguedItemTable() {
             </table>
 
 
-            < CataloguedPdf />
+            < CataloguedPdf/>
         </div>
     )
 }

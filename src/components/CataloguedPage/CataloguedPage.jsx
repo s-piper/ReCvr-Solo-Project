@@ -17,8 +17,6 @@ function CataloguedPage(){
         <div>
 
             <h2>Items</h2>
-            <CataloguedItemTable />
-
             <EnhancedTable />
 
             <h2>Rooms</h2>
