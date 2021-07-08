@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
+import CataloguedRoomPdf from '../CataloguedRoomPdf/CataloguedRoomPdf';
 
 
 function CataloguedRoomTable() {
@@ -69,7 +70,7 @@ function CataloguedRoomTable() {
                 </tbody>
             </table>
 
-
+            <CataloguedRoomPdf />
         </div>
     )
 }
