@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import { FormControl } from '@material-ui/core';
+import './RoomEdit.css';
 
 function RoomEdit() {
 
@@ -36,7 +38,10 @@ function RoomEdit() {
 
     return (
 
-        <div>
+        <div className="roomEdit">
+            <FormControl>
+            <h2>Edit Room</h2>
+
             <TextField
                 onChange={(event) => setRoomName(event.target.value)}
                 id="outlined-basic"
@@ -56,13 +61,19 @@ function RoomEdit() {
                 id="outlined-basic"
                 label="Picture/Video URL"
                 variant="outlined" />
+                
             <br />
-
+            </FormControl>
+            <br />
             <Button
                 onClick={handleSave}
                 variant="contained"
                 color="primary">
                 Save
+            </Button>
+            <Button variant="contained" color="secondary"
+                onClick={() => { history.push('/catalogue') }}>
+                Cancel
             </Button>
 
 

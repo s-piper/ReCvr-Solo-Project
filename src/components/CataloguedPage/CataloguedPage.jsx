@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import InsuranceForm from '../InsuranceForm/InsuranceForm';
-
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import { render } from 'react-dom';
-import { useHistory } from 'react-router-dom';
-import CataloguedItemTable from '../CataloguedItemTable/CataloguedItemTable';
-import CataloguedRoomTable from '../CataloguedRoomTable/CataloguedRoomTable';
+import ItemTable from '../ItemTableUi/ItemTableUi';
+import RoomTable from '../RoomTableUi/RoomTableUi';
+import './CataloguedPage.css'
 
 function CataloguedPage(){
 
@@ -15,11 +9,11 @@ function CataloguedPage(){
     return(
         <div>
 
-            <h2>Items</h2>
-            <CataloguedItemTable />
+            <h2 className="headerCatalogue">Items</h2>
+            <ItemTable />
 
-            <h2>Rooms</h2>
-            <CataloguedRoomTable />
+            <h2 className="headerCatalogue">Rooms</h2>
+            <RoomTable />
 
         </div>
     )

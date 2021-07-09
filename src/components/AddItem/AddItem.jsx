@@ -5,6 +5,7 @@ import './AddItem.css'
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 function AddItem() {
 
@@ -19,7 +20,7 @@ function AddItem() {
 
     //Bundles state into object and makes a dispatch call
     //with newItem object
-    const handleSave = () =>{
+    const handleSave = (event) =>{
         const newItem = {
             name: itemName,
             brand: brand,
@@ -29,6 +30,13 @@ function AddItem() {
         console.log(newItem);
 
         dispatch({type:'ADD_ITEM', payload: newItem})
+
+        setItemName('');
+        setBrand('');
+        setModel('');
+        setMedia('');
+
+        history.go(0);
     }
 
     return (
@@ -42,6 +50,7 @@ function AddItem() {
 
                 <form>
                     {/* Each text field will listen for changes and set corresponding state */}
+                    <FormControl>
                     <TextField
                         onChange={(event) => setItemName(event.target.value)} 
                         id="outlined-basic" 
@@ -66,7 +75,7 @@ function AddItem() {
                         onChange={(event) => setMedia(event.target.value)}
                         id="outlined-basic" 
                         label="Picture/Video URL" 
-                        variant="outlined" />
+                        variant="outlined" /> 
                     <br />
                     <Button 
                         onClick={handleSave}
@@ -75,6 +84,7 @@ function AddItem() {
                         Save
                     </Button>
                     <p>*Required</p>
+                    </FormControl>
                 </form>
             </div>
 

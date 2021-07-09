@@ -5,6 +5,8 @@ import './AddRoom.css'
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+
 
 function AddRoom(){
     
@@ -25,6 +27,12 @@ function AddRoom(){
         console.log(newItem);
 
         dispatch({type:'ADD_ROOM', payload: newItem})
+
+        setRoomName('');
+        setDesc('');
+        setMedia('');
+
+        history.go(0);
     }
 
 
@@ -39,6 +47,7 @@ function AddRoom(){
                 </h3>)}
                 <form>
                     {/* Each text field will listen for changes and set corresponding state */}
+                    <FormControl>
                     <TextField
                         onChange={(event) => setRoomName(event.target.value)} 
                         id="outlined-basic" 
@@ -66,6 +75,7 @@ function AddRoom(){
                         Save
                     </Button>
                     <p>*Required</p>
+                    </FormControl>
                 </form>
             </div>
 

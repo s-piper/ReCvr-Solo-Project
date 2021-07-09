@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
 import { useHistory } from 'react-router-dom';
 import CataloguedRoomPdf from '../CataloguedRoomPdf/CataloguedRoomPdf';
 
@@ -30,7 +34,7 @@ function CataloguedRoomTable() {
 
     const handleEdit = (room) => {
 
-        dispatch({type:'EDIT_ROOM', payload: room});
+        dispatch({ type: 'EDIT_ROOM', payload: room });
         history.push('/room-edit')
 
         console.log('handleEdit', room);
@@ -48,6 +52,8 @@ function CataloguedRoomTable() {
                         <th>Room Name</th>
                         <th>Description</th>
                         <th>Upload</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,14 +62,17 @@ function CataloguedRoomTable() {
                             <tr key={i}>
                                 <td>{room.room_name}</td>
                                 <td>{room.description}</td>
-                                <td>{room.upload}</td>
-                                <td>{<button onClick={() => {handleEdit(room)}}>
-                                    Edit
-                                </button>}
+                                <td>
+                                    <img src={room.upload} width="50" height="50" />
                                 </td>
-                                <td>{<button onClick={() => handleDelete(room)}>
-                                    Delete
-                                </button>}
+                                <td>{<IconButton onClick={() => { handleEdit(room) }}>
+                                    <EditIcon />
+                                </IconButton>}
+                                </td>
+                                <td><IconButton onClick={() => handleDelete(room)}
+                                    aria-label="delete">
+                                    <DeleteIcon />
+                                </IconButton>
                                 </td>
                             </tr>)
                     })}
