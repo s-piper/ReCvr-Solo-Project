@@ -66,8 +66,7 @@ export default function BasicTableRoom() {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name </TableCell>
-                                <TableCell align="center">Brand</TableCell>
-                                <TableCell align="center">Model</TableCell>
+                                <TableCell align="center">Description</TableCell>
                                 <TableCell align="center">Upload</TableCell>
                                 <TableCell align="center">Edit</TableCell>
                                 <TableCell align="center">Delete</TableCell>
@@ -80,7 +79,6 @@ export default function BasicTableRoom() {
                                         {row.room_name}
                                     </TableCell>
                                     <TableCell align="center">{row.description}</TableCell>
-                                    <TableCell align="center">{row.upload}</TableCell>
                                     <TableCell align="center"><img src={row.upload} height="75" width="75" /></TableCell>
                                     <TableCell align="center"><IconButton onClick={() => { handleEdit(row) }}>
                                         <EditIcon fontSize="large" />

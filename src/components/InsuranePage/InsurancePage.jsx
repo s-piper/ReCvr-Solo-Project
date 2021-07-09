@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InsuranceForm from '../InsuranceForm/InsuranceForm';
+import './InsurancePage.css';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -27,7 +28,7 @@ function InsurancePage() {
 
     return (
 
-        <div>
+        <div className="insuranceList">
             <h2>Insurance</h2>
             {/* Conditionally renders the form or stored info. */}
             {insurance[0]?.file ? (
