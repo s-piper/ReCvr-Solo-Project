@@ -14,7 +14,7 @@ function InsuranceForm() {
     const[policy, setPolicy]=useState('');
     const[value, setValue]=useState(0);
 
-    const handleSave = () =>{
+    const handleSave = () =>{ 
         //Packages up inputs to post
       const newInsurance={
             company: company,
